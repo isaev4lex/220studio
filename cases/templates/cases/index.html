@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-case">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn green">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      <section>
+        <div class="container">
+          
+          <div class="cases">
+            <div class="cases-filter">
+              {% if active_filter == 'all' %}
+                <a href="{% url 'cases' %}" class="cases-btn active">Все проекты</a>
+              {% else %}
+                <a href="{% url 'cases' %}" class="cases-btn">Все проекты</a>
+              {% endif %}
+              
+              {% for filter in filters %}
+                {% if filter == active_filter %}
+                  <a href="{{ filter.get_url }}" class="cases-btn active">{{ filter.title }}</a>
+                {% else %}
+                  <a href="{{ filter.get_url }}" class="cases-btn">{{ filter.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <div class="cases-container">
+              {% for case in cases %}
+                <div class="cases-item">
+                  <img src="{{ case.img.url }}" alt="{{ case.title }}" />
+                </div>
+              {% endfor %}        
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      {% include 'feedback.html' %}
+
+      
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/swiper-bundle.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+    {% endblock %}

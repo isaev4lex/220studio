@@ -1,0 +1,82 @@
+.modal
+  position: fixed
+  width: 100vw
+  height: 100%
+  z-index: 1000
+  transition: opacity .2s ease, visibility .2s ease
+  opacity: 0
+  visibility: hidden
+  &-overlay
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0, .8)
+  &-window
+    width: 85%
+    max-width: 800px
+    background-color: #fff
+    border-radius: 0.625em
+    padding: 65px 90px
+    position: relative
+    margin-top: 30px
+    margin-bottom: 30px
+    overflow-y: auto
+  &-close
+    display: block
+    position: absolute
+    right: 20px
+    top: 20px
+    overflow: hidden
+    cursor: pointer
+    svg
+      &:hover
+        fill: #000
+  &-form
+    display: flex
+    flex-direction: column
+    label
+      font-family: 'Google Sans'
+      font-size: 2.5rem
+      font-weight: 500
+      color: #000
+    input
+      font-family: 'Google Sans'
+      width: 100%
+      background-color: #F4F4F4
+      border: none
+      border-radius: 0.375em
+      padding: 15px
+      font-size: 2.5rem
+      margin-top: 5px
+      margin-bottom: 30px
+      outline: none
+    select
+      font-family: 'Google Sans'
+      width: 100%
+      margin-top: 5px
+      padding: 15px
+      margin-bottom: 30px
+      border: none
+      font-size: 2.5rem
+      background-color: #F4F4F4
+      border-radius: 0.375em
+      outline: none
+    button
+      font-family: 'Google Sans'
+      display: block
+      color: #fff
+      font-size: 2.5rem
+      font-weight: 500
+      border: none
+      padding: 20px 60px
+      border-radius: 0.375em
+      transition: background-color .3s ease-in-out
+      outline: none
+      &:hover
+        background-color: darken(#29CCB8, 8)
+  &-show
+    visibility: visible
+    opacity: 1

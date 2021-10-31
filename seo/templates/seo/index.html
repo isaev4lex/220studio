@@ -1,0 +1,615 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-seo">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn violet">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">SEO продвижение в <span class="violet">Узбекистане</span></h2>
+            <p class="page-txt">
+              Вовлекаем аудиторию социальных сетей в диалог, оперативно анализируем качество обратной связи и производим необходимую коррекцию SMM продвижения в Узбекистане в режиме онлайн. Обрабатываем все запросы потребителей, определяем их боли и мгновенно реагируем на них. Все это способствует формированию положительного информационного поля и вовлечению пользователей.
+            </p>
+
+            <h2 class="page-title">Как привлечь аудиторию на <span class="violet">сайт?</span></h2>
+            <p class="page-txt">
+              Переход пользователей из поисковых систем по ключевым запросам – очень эффективный и, что еще важнее, долгосрочный способ привлечения аудитории. Оптимизация сайта проводится глобально один раз – и при правильной поддержке ресурса результат будет виден не дни и недели, а месяцы и годы. Профессиональное SEO продвижение в Ташкенте - это постоянный трафик целевой аудитории на сайт.
+            </p>
+          </div>
+
+          <div class="page-stat">
+            <div class="container">
+              <div class="page-wrapper">
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="violet"> 34,87 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">население Узбекистана</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="violet"> 22,1 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">интернет-пользователей в Узбекистане</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="violet"> 96% </span>
+                  </div>
+                  <div class="page-subtxt">пользователей заходят в поисковые системы</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="violet"> 75% </span>
+                  </div>
+                  <div class="page-subtxt">юзеров не переходят на вторую страницу поиска</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-background">
+        <div class="container">
+          <h2 class="page-title"><span class="violet">SEO</span> - продвижение качественный трафик на сайт!</h2>
+
+          <div class="page-business">
+            <div class="page-container">
+              <div class="page-subtitle">
+                01.
+                <span class="violet">Изучение особенностей вашего бренда</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Работа начинается с детального погружения в рыночную нишу вашего бренда и в сам бренд</p>
+
+                <p>Чтобы сделать по-настоящему качественное продвижение сайта и его SEO оптимизацию, необходимо понять, как работает сам бизнес, какие у него тонкости и особенности. Только так создаются экспертные SEO-тексты.</p>
+                
+                <p>Простое «ввинчивание» ключей не даст результата ни для поисковиков, ни для реальных людей. Поэтому мы сначала вникаем в детали, а затем двигаемся дальше.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                02.
+                <span class="violet">Технический аудит и разработка стратегии продвижения</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Полный аудит сайта – еще один «подготовительный», но обязательный этап</p>
+
+                <p>После погружения в рыночную нишу и бренд наши эксперты продвижения сайтов в Ташкенте приступают к погружению в то, что у вас уже сделано – изучают техническую, лексическую и графическую составляющие, определяют список ошибок и разрабатывают детальную концепцию продвижения.</p>
+                
+                <p>Она начинается с удаления имеющихся недочетов – удаление страниц-дублей, правильная настройка редиректов, структурирование текстов и их иерархии, уникализация изображений и так далее. И лишь затем мы начинаем создавать для вас новый контент.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                03.
+                <span class="violet">Качественная оптимизация сайта</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Мы используем только «белое» SEO продвижение и инструменты поисковой оптимизации.</p>
+                
+                <p>Это дает нам возможность гарантировать не только достижение результата, но и длительную эффективность.</p>
+                
+                <p>Мы не используем никакие накрутки, грязные текстовые приемы и любые другие способы, которые могут «выстрелить» на короткий срок, но потом привести к пессимизации или даже блокировке сайта на индексирование в поисковых системах.</p>
+                
+                <p>Вот такой принцип работы и называется качественная оптимизация сайта в Узбекистане.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                04.
+                <span class="violet">Скорость вывода в топ</span>
+              </div>
+              <div class="page-paragraph">
+                <p>SEO делается аккуратно и бережно. Главный принцип, как и у врачей – «не навреди!»</p>
+                
+                <p>При соблюдении всех условий и реализации наших рекомендаций движение вверх может начаться уже через несколько недель после начала работ.</p>
+                
+                <p>Но следует помнить, что быстро выйти в ТОП получается далеко не всегда – конкуренция в некоторых нишах невероятно высока. </p>
+                
+                <p>Однако результат будет получен, и он окупит все ваши ожидания и затраты.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                05.
+                <span class="violet">Отслеживание и улучшение показателей эффективности</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Комплексный мониторинг сайта – залог успешного SEO продвижения</p>
+
+                <p>Когда вы доверяете нам SEO оптимизацию «под ключ», ваш сайт сразу подключается к системе тотального мониторинга. </p>
+                
+                <p>Специальные веб-сервисы безостановочно проверяют его работоспособность, исправность технических параметров и многое другое.</p>
+                
+                <p>Также систематически составляются отчеты о позициях страниц в поисковых системах и статистика по трафику. Будет очень интересно и увлекательно – смотреть, как растут графики и цифры. Давайте пробовать!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Как ведётся работа по <span class="violet">SEO?</span></h2>
+
+          <div class="page-process">
+              {% for step in work_steps %}
+            <div class="page-content">
+                <div class="page-content">
+                  <div class="page-heading violet__dots">{{ step.title }}</div>
+                  <p>{{ step.text }}</p>
+                </div>
+            </div>
+              {% endfor %}
+
+            
+          </div>
+
+          <div class="page-motto"><span class="violet">SEO-продвижение</span> - рабочий канал для привлечения трафика на сайт!</div>
+        </div>
+      </section>
+
+      <section class="page-background">
+        <div class="container">
+          <div class="page-title">Что входит в <span class="violet">SEO оптимизацию</span> и продвижение сайта?</div>
+          <div class="page-contain">
+            <div class="tab">
+              <div class="tab_headers">
+                <p class="tab_header tab_header__active">Услуговые, Информационные сайты</p>
+                <p class="tab_header">Интернет- магазины</p>
+                <p class="tab_header">Разработка и редизайн</p>
+              </div>
+              <div class="tab_container">
+                <div class="tab_content">
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Техническая оптимизация сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Техническая оптимизация</li>
+                          <li>Анализ и устранение ошибок в мобильной адаптации сайта</li>
+                          <li>Добавление микроразметки на сайт</li>
+                          <li>Смена структуры сайта</li>
+                          <li>Оптимизация скорости загрузки сайта</li>
+                          <li>Анализ наличия поддоменов, зеркал, региональных папок сайта</li>
+                          <li>Опитимизация атрибутов alt и title изображений (по шаблону)</li>
+                          <li>Перевод сайта на защищенный протокол https</li>
+                          <li>Аудит наличия санкций со стороны Яндекс и Google</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Навигация сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ/реализация корректной навигации в основном меню сайта</li>
+                          <li>Проверка наличия ссылок на продвигаемые страницы в основном меню</li>
+                          <li>Анализ/реализация навигационного меню "хлебные крошки"</li>
+                          <li>Анализ/рекомендации по организации пагинатора каталога</li>
+                          <li>ТЗ на перелинковку с информационных страниц</li>
+                          <li>ТЗ на перелинковку для услуговых страниц</li>
+                          <li>ТЗ на перелинковку для продвигаемых страниц</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Семантическое ядро</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Подготовка семантики для продвижения</li>
+                          <li>Регулярное расширение семантики для продвижения</li>
+                          <li>Распределение запросов по посадочным страницам</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Мета-данные</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Оптимизация заголовков H для продвигаемых страниц</li>
+                          <li>Оптимизация метатегов title для продвигаемых страниц</li>
+                          <li>Оптимизация метатегов description для продвигаемых страниц</li>
+                          <li>Оптимизация мета-тегов и/или заголовков H1 непродвигаемых страниц</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Тексты</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Написание текстов</li>
+                          <li>Подготовка ТЗ на написание/корректировку/оформление текстов</li>
+                          <li>Анализ существующего контента на сайте, его оптимизация под целевые запросы</li>
+                          <li>Анализ контента конкурентов по выдаче</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Коммерческие факторы</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ и ТЗ на макеты и функциональные элементы для мобильной версии сайта</li>
+                          <li>Анализ коммерческих и функциональных элементов</li>
+                          <li>ТЗ на макеты по коммерческим и функциональным элементам</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Внешняя оптимизация</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Аудит ссылочной массы сайта</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Настройка сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Установка / настройка Google Search Console, Яндекс.Вебмастер</li>
+                          <li>Аудит оптимизации сайта по данным панелей Я.Вебмастер и Google Search Console</li>
+                          <li>Настройка индексации по Google Search Console и Яндекс.Вебмастер</li>
+                          <li>Добавление / настройка карточки компании в Яндекс.Справочнике</li>
+                          <li>Добавление / настройка карточки компании в Google My Business</li>
+                          <li>Настройка атрибута hreflang</li>
+                          <li>Установка / настройка Google Analytics и Яндекс.Метрика</li>
+                          <li>Настройка целей в Google Analytics</li>
+                          <li>Настройка целей в Яндекс.Метрике</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Отчетность</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Отчет по результату предыдущего месяца</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Реализация задач</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Услуги Web-поддержки</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Дополнительные работы</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Аудит для Web-аналитика</li>
+                          <li>Анализ ведения платных каналов</li>
+                          <li>Анализ репутации компании в поисковых системах</li>
+                          <li>Аудит по usability</li>
+                          <li>Тестирование сайта на локальном сервере</li>
+                          <li>Тестирование форм и рекомендации по коммерческим факторам ранжирования</li>
+                          <li>ТЗ на настройку Яндекс.Турбо</li>
+                          <li>ТЗ на настройку и создание AMP-страниц</li>
+                          <li>Консультации по разработке сайта</li>
+                          <li>Описание общих технических требований к новому сайту</li>
+                          <li>Описание требований при переходе сайта на новый дизайн</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab_content">
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Техническая оптимизация сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Техническая оптимизация</li>
+                          <li>Анализ и устранение ошибок в мобильной адаптации сайта</li>
+                          <li>Добавление микроразметки на сайт</li>
+                          <li>Анализ структуры сайта</li>
+                          <li>Разработка структуры сайта, определение URL структуры</li>
+                          <li>Доработка структуры сайта. Рекомендации по разработке новых страниц</li>
+                          <li>Оптимизация скорости загрузки сайта</li>
+                          <li>Анализ наличия поддоменов, зеркал, региональных папок сайта</li>
+                          <li>Опитимизация атрибутов alt и title изображений (по шаблону)</li>
+                          <li>Перевод сайта на защищенный протокол https</li>
+                          <li>Аудит наличия санкций со стороны Яндекс и Google</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Навигация сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ/реализация корректной навигации в основном меню сайта</li>
+                          <li>Проверка наличия ссылок на продвигаемые страницы в основном меню</li>
+                          <li>Анализ/реализация навигационного меню "хлебные крошки"</li>
+                          <li>Анализ/рекомендации по организации пагинатора каталога</li>
+                          <li>ТЗ на перелинковку с информационных страниц</li>
+                          <li>ТЗ на перелинковку для услуговых страниц</li>
+                          <li>ТЗ на перелинковку для продвигаемых страниц</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Семантическое ядро</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Подбор запросов главная + служебные страницы</li>
+                          <li>Подбор запросов - продуктовые страницы</li>
+                          <li>Подбор запросов - разводящие страницы интернет-магазина</li>
+                          <li>Подбор запросов - услуговые страницы</li>
+                          <li>Распределение запросов по посадочным страницам</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Создание страниц</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Определение приоритетных кластеров семантики</li>
+                          <li>ТЗ на создание страниц тегирования/статейных страниц</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Мета-данные</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Оптимизация метатегов title для продвигаемых страниц</li>
+                          <li>Оптимизация метатегов description для непродвигаемых страниц</li>
+                          <li>Оптимизация метатегов разводящих страниц каталога</li>
+                          <li>Оптимизация метатегов служебных страниц сайта</li>
+                          <li>Оптимизация метатегов страниц тегирования</li>
+                          <li>Рекомендации по устранению дублей заголовков h1</li>
+                          <li>Шаблонное заполнение метатегов карточек товара</li>
+                          <li>Шаблонное заполнение мета-тегов разводящих страниц каталога</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Коммерческие факторы</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ и ТЗ на макеты и функциональные элементы для мобильной версии сайта</li>
+                          <li>Анализ к шаблонам карточек товара</li>
+                          <li>Анализ к шаблону разводящих каталога и тегирования</li>
+                          <li>Анализ к шапке и футеру сайта</li>
+                          <li>ТЗ на макеты по коммерческим и функциональным элементам</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Внешняя оптимизация</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Аудит ссылочной массы сайта</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Настройка сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Установка / настройка Google Search Console, Яндекс.Вебмастер</li>
+                          <li>Аудит оптимизации сайта по данным панелей Я.Вебмастер и Google Search Console</li>
+                          <li>Настройка индексации по Google Search Console и Яндекс.Вебмастер</li>
+                          <li>Добавление / настройка карточки компании в Яндекс.Справочнике</li>
+                          <li>Добавление / настройка карточки компании в Google My Business</li>
+                          <li>Настройка атрибута hreflang</li>
+                          <li>Установка / настройка Google Analytics и Яндекс.Метрика</li>
+                          <li>Настройка целей в Google Analytics</li>
+                          <li>Настройка целей в Яндекс.Метрике</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Отчетность</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Отчет по результату предыдущего месяца</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Тексты</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Написание текстов</li>
+                          <li>Подготовка ТЗ на написание/корректировку/оформление текстов</li>
+                          <li>Анализ существующего контента на сайте, его оптимизация под целевые запросы</li>
+                          <li>Анализ контента конкурентов по выдаче</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Реализация задач</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Услуги Web-поддержки</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Дополнительные работы</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Аудит для Web-аналитика</li>
+                          <li>Анализ ведения платных каналов</li>
+                          <li>Анализ репутации компании в поисковых системах</li>
+                          <li>Аудит по usability</li>
+                          <li>Тестирование сайта на локальном сервере</li>
+                          <li>Тестирование форм и рекомендации по коммерческим факторам ранжирования</li>
+                          <li>ТЗ на настройку Яндекс.Турбо</li>
+                          <li>ТЗ на настройку и создание AMP-страниц</li>
+                          <li>Консультации по разработке сайта</li>
+                          <li>Описание общих технических требований к новому сайту</li>
+                          <li>Описание требований при переходе сайта на новый дизайн</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab_content">
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Анализ конкурентов</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Аналитика конкурентов</li>
+                          <li>Анализ макетов основных страниц</li>
+                          <li>Анализ структуры</li>
+                          <li>Оптимизация мета-тегов и/или заголовков H1 по шаблону для всех страниц</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Техническая оптимизация сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ наличия «битых» ссылок на cайте. Их устранение</li>
+                          <li>Актуализация внешних ссылок и их закрытие атрибутом nofollow</li>
+                          <li>Анализ файла robots.txt. Оптимизация файла robots.txt</li>
+                          <li>Настройка 301 редиректов с версий страниц без слэша на версию с ним</li>
+                          <li>Проверка внутренних ссылок на страницы с перенаправлением (редиректы)</li>
+                          <li>Проверка корректности формирования sitemap.xml. Доработка xml карты сайта</li>
+                          <li>Рекомендации по настройке 404 ошибки в дизайне сайта</li>
+                          <li>Технические доработки сайта по устранению помех к индексации и ранжированию</li>
+                          <li>Устранение дублей страниц</li>
+                          <li>ТЗ на структуру сайта</li>
+                          <li>ТЗ по формированию URL страниц на основе утвержденной структуры сайта (по факту)</li>
+                          <li>Проверка настройки https</li>
+                          <li>Рекомендации по переезду на https</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="accordion_block">
+                      <div class="accordion_title">Макеты страниц</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Анализ и ТЗ на макеты и функциональные элементы для мобильной версии сайта</li>
+                          <li>Рекомендации на макеты и функциональные элементы для мобильной версии сайта</li>
+                          <li>Анализ коммерческих и функциональных элементов</li>
+                          <li>Рекомендации по прототипам шаблонных элементов (шапка, футер, сквозные меню и пр.)</li>
+                          <li>Рекомендации по прототипам основных страниц (макеты типовых страниц, размещения контента, каталогов и т.д.)</li>
+                          <li>Рекомендации по функциональным элементам (размещение, визуализация)</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Контроль релиза нового сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Проверка локальной версии сайта на соответствие ТЗ на тех оптимизацию, структуру, дизайн и пр ошибки</li>
+                          <li>Тестирование форм и рекомендации по коммерческим факторам ранжирования</li>
+                          <li>Контроль перехода сайта на рабочую версию</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="accordion_block">
+                      <div class="accordion_title">Настройка сайта</div>
+                      <div class="accordion_panel">
+                        <ul class="accordion_list">
+                          <li>Настройка региональных факторов ранжирования</li>
+                          <li>Установка / настройка Google Search Console, Яндекс.Вебмастер</li>
+                          <li>Аудит оптимизации сайта по данным панелей Я.Вебмастер и Google Search Console</li>
+                          <li>Настройка индексации по Google Search Console и Яндекс.Вебмастер</li>
+                          <li>Добавление / настройка карточки компании в Яндекс.Справочнике</li>
+                          <li>Добавление / настройка карточки компании в Google My Business</li>
+                          <li>Настройка атрибута hreflang</li>
+                          <li>Установка / настройка Google Analytics и Яндекс.Метрика</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+      <script src="{% static '/js/tab_acc.js' %}"></script>
+  {% endblock %}

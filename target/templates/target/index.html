@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-targetadv">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn pink">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Что такое таргетированная реклама в <span class="pink">социальных сетях?</span></h2>
+            <p class="page-txt">
+              Таргетированная реклама в социальных сетях – один из самых эффективных рекламных инструментов нашего времени. Продвижение в Instagram и в Facebook позволяет зацепить и привести к вам на сайт целевую аудиторию, которая будет четко сегментирована по поведенческим факторам и интересам. Но, чтобы добиться действительно выдающихся результатов настройкой таргетированной рекламы должны заниматься опытные специалисты.
+            </p>
+
+            <h2 class="page-title">Оцениваем преимущества Таргетированной рекламы на рынке <span class="pink">Узбекистана</span></h2>
+            <p class="page-txt">
+              В последние годы интернет в Узбекистане переживает период взрывного роста. Расценки на доступ в сеть падают, скорость подключения возрастает. Всё это приводит к тому, что число вовлеченной в социальные сети аудитории растет буквально каждый день и уже перевалило за один миллион человек. Не воспользоваться таким мощным ресурсом – непростительная ошибка.
+<br><br>
+Мы поможем вам осуществить запуск таргетированной рекламы в Ташкенте в кратчайшие сроки, с минимальными затратами и максимальной эффективностью. Услуга таргетированной рекламы в Ташкенте включает в себя анализ вашего торгового предложения, создание эффективных рекламных сообщений и настройку рекламной кампании с обязательным сегментированием аудитории.
+            </p>
+          </div>
+          
+          <div class="page-stat">
+            <div class="container">
+              <div class="page-wrapper">
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="pink"> 34,87 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">население Узбекистана</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="pink"> 22,1 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">интернет-пользователей в Узбекистане</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="pink"> 5 </span>
+                    млрд.
+                  </div>
+                  <div class="page-subtxt">посещений поисковых систем</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="pink"> 44% </span>
+                  </div>
+                  <div class="page-subtxt">На столько выросла интернет-торговля в 2021г.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="page-background">
+        <div class="container">
+          <h2 class="page-title">Стратегия <span class="pink">работы</span></h2>
+
+          <div class="page-jobs">
+            {% for strategy in work_strategy %}
+              <div class="page-jobs-item">
+                <div class="page-jobs-wrapper">
+                  <h3 class="page-jobs-title">
+                    <span class="pink">{{ strategy.number }}.</span>
+                    {{ strategy.title }}
+                  </h3>
+                  <p class="page-jobs-slogan">{{ strategy.for_business }}</p>
+                </div>
+                <div class="page-jobs-wrapper">
+                  <h4 class="page-jobs-subtitle">{{ strategy.subtitle }}</h4>
+                  <p class="page-jobs-subtext">
+                    {{ strategy.text }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+
+          <div class="page-summary pink">Вывод:</div>
+          <br><br>
+           <p class="page-txt mb-0">Только работа с профессионалами и комплексный подход позволяют достигать по-настоящему выдающегося результата, завоевывать новую потребительскую аудиторию и повышать доходность вашего бизнеса и узнаваемость бренда. Мы готовы помочь вам выйти на новый уровень маркетинга и бизнеса в целом – теперь дело только за вами.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="page-info">
+            <h2 class="page-title">
+              Привлечение возможных клиентов в ваш
+              <span class="pink"> бизнес </span>
+            </h2>
+            <p class="page-txt mb-0">
+             Работа по привлечению целевой аудитории через таргетированную рекламу в Ташкенте позволит вам получить и прямые, и косвенные преимущества. Помимо непосредственного роста конверсии и продаж вы получите значительное повышение узнаваемости бренда, сформируете позитивное информационное поле вокруг компании, ее товаров и услуг.
+<br><br>
+Правильно проводимая реклама в соцсетях с профессиональным таргетингом позволит неоднократно окупить затраты на ее настройку и проведение в самые короткие сроки. Если вы все еще колеблетесь – подумайте о том, что в это же самое время ваши прямые конкуренты уже вполне могут использовать этот крутой рычаг и завоевывать новых клиентов прямо в эту секунду. Не надо медлить!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title page-align">Тарифы</h2>
+
+          <div class="page-tariffs-brandbook">
+            {% for tariff in tariffs %}
+              <div class="page-card">
+                <h3 class="pink">{{ tariff.title }}</h3>
+                {% for item in tariff_list %}
+                  {% if item.tariff == tariff %}
+                    <p>{{ item.list }}</p>
+                  {% endif %}
+                {% endfor %}
+                <div class="page-price"><span class="pink">{{ tariff.bonus }}</span></div>
+                <hr />
+                <div class="page-price"><span class="pink">{{ tariff.price }}</span> сум</div>
+                <a href="#" class="page-btn pink__bg">Оставить заявку</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+      
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+  {% endblock %}

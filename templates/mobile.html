@@ -1,0 +1,236 @@
+<!-- mobile menu -->
+<div class="mobile">
+  <div class="mobile-window">
+    <div class="mobile-scroll">
+      <div class="mobile-container">
+        <div class="mobile-services">
+          <div class="mobile-close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              width="25px"
+              height="25px"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <div class="mobile-services-wrapper">
+            <div class="mobile-services-title">Маркетинг</div>
+            <div class="mobile-services-text">
+              <a href="{% url 'marketing-strategy' %}">Маркетинговая стратегия</a>
+              <a href="#" class="deactivate">Позиционирование бизнеса</a>
+              <a href="#" class="deactivate">Построение Big Idea</a>
+            </div>
+          </div>
+          <div class="mobile-services-wrapper">
+            <div class="mobile-services-title">Социальные сети</div>
+            <div class="mobile-services-text">
+              <a href="{% url 'smm' %}">SMM - продвижение</a>
+              <a href="{% url 'target' %}">Таргетированная реклама</a>
+              <a href="#" class="deactivate">Influence - маркетинг</a>
+              <a href="#" class="deactivate">Tik-Tok</a>
+              <a href="#" class="deactivate">Community Management</a>
+            </div>
+          </div>
+          <div class="mobile-services-wrapper">
+            <div class="mobile-services-title">WEB разработка</div>
+            <div class="mobile-services-text">
+              <a href="{% url 'webdev' %}">Разработка сайтов</a>
+              <a href="#" class="deactivate">Визитка - Промо</a>
+              <a href="#" class="deactivate">Landing page</a>
+              <a href="#" class="deactivate">Корпоративный сайт</a>
+              <a href="#" class="deactivate">Сайт каталог</a>
+              <a href="#" class="deactivate">Интернет - магазин</a>
+            </div>
+          </div>
+          <div class="mobile-services-wrapper">
+            <div class="mobile-services-title">Продвижение</div>
+            <div class="mobile-services-text">
+              <a href="{% url 'contextadv' %}">Контекстная реклама</a>
+              <a href="{% url 'seo' %}">SEO - продвижение</a>
+              <a href="#" class="deactivate">Реклама в YouTube</a>
+              <!--<a href="{% url 'target' %}">Таргетированная реклама в соц. сетях</a>-->
+            </div>
+          </div>
+          <div class="mobile-services-wrapper">
+            <div class="mobile-services-title">Branding</div>
+            <div class="mobile-services-text">
+              <a href="#" class="deactivate">Платформа бренда</a>
+              <a href="#" class="deactivate">Нейминг</a>
+              <a href="{% url 'logo-and-style' %}">Логотип и фирменный стиль</a>
+              <a href="{% url 'brandbook' %}">Брендбук</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-cases"></div>
+
+        <div class="mobile-menu">
+          <div class="mobile-close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              width="25px"
+              height="25px"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <a href="#" class="mobile-menu-link">Блог</a>
+          <a href="#" class="mobile-menu-link">Команда</a>
+          <a href="#" class="mobile-menu-link">Контакты</a>
+          <a href="#" class="mobile-menu-link">О нас</a>
+          {% for email in contact_info.emails %}
+            <a href="mailto:{{ email }}" class="mobile-menu-link">{{ email }}</a>
+          {% endfor %}
+
+          {% for phone in contact_info.phones %}
+            <a href="tel:{{ phone }}" class="mobile-menu-link">{{ phone }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav">
+      {% if page == 'home' %}
+        <a href="{% url 'home' %}" class="mobile-link mobile-active">
+      {% else %}
+        <a href="{% url 'home' %}" class="mobile-link">
+      {% endif %}
+      <div class="mobile-item">
+        <div class="mobile-icon">
+          <svg
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.0001 20.8001H7.0001C6.2001 20.8001 5.6001 20.2001 5.6001 19.4001V13.0001C5.6001 12.2001 6.2001 11.6001 7.0001 11.6001H17.0001C17.8001 11.6001 18.4001 12.2001 18.4001 13.0001V19.4001C18.5001 20.2001 17.9001 20.8001 17.0001 20.8001Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M21.9001 11.4002C21.6001 11.8002 21.1001 12.1002 20.6001 12.1002C20.3001 12.1002 20.0001 12.0002 19.8001 11.9002L11.9001 6.7002L4.00006 11.9002C3.70006 12.1002 3.50006 12.1002 3.20006 12.1002C2.70006 12.1002 2.20006 11.9002 1.90006 11.4002C1.40006 10.7002 1.60006 9.7002 2.30006 9.3002L11.1001 3.5002C11.1001 3.5002 11.2001 3.4002 11.3001 3.4002C11.5001 3.3002 11.8001 3.2002 12.0001 3.2002C12.1001 3.2002 12.1001 3.2002 12.2001 3.2002C12.3001 3.2002 12.4001 3.2002 12.4001 3.3002C12.5001 3.3002 12.5001 3.3002 12.6001 3.4002C12.7001 3.4002 12.8001 3.5002 12.8001 3.5002L21.5001 9.3002C22.2001 9.8002 22.4001 10.7002 21.9001 11.4002Z"
+              fill="#D7D7D7"
+            />
+          </svg>
+        </div>
+        Домой
+      </div>
+    </a>
+
+    <a href="#" class="mobile-link __services">
+      <div class="mobile-item">
+        <div class="mobile-icon">
+          <svg
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.9999 7.2H3.9999C3.0999 7.2 2.3999 6.5 2.3999 5.6C2.3999 4.8 3.0999 4 3.9999 4H19.9999C20.8999 4 21.5999 4.7 21.5999 5.6C21.5999 6.5 20.8999 7.2 19.9999 7.2Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M15.2999 11.4998H3.9999C3.0999 11.4998 2.3999 10.7998 2.3999 9.8998C2.3999 8.9998 3.0999 8.2998 3.9999 8.2998H15.2999C16.1999 8.2998 16.8999 8.9998 16.8999 9.8998C16.8999 10.6998 16.1999 11.4998 15.2999 11.4998Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M12.1999 14.1C12.1999 15 11.4999 15.7 10.5999 15.7H3.9999C3.0999 15.7 2.3999 15 2.3999 14.1C2.3999 13.2 3.0999 12.5 3.9999 12.5H10.5999C11.3999 12.5 12.1999 13.3 12.1999 14.1Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M16.5999 19.9998H3.9999C3.0999 19.9998 2.3999 19.2998 2.3999 18.3998C2.3999 17.4998 3.0999 16.7998 3.9999 16.7998H16.5999C17.4999 16.7998 18.1999 17.4998 18.1999 18.3998C18.1999 19.1998 17.3999 19.9998 16.5999 19.9998Z"
+              fill="#D7D7D7"
+            />
+          </svg>
+        </div>
+        Услуги
+      </div>
+    </a>
+    
+    {% if page == 'cases' %}
+        <a href="{% url 'cases' %}" class="mobile-link __cases mobile-active">
+    {% else %}
+        <a href="{% url 'cases' %}" class="mobile-link __cases">
+    {% endif %}
+      <div class="mobile-item">
+        <div class="mobile-icon">
+          <svg
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.2001 8.5999H17.2001C17.2001 7.1999 16.6001 5.8999 15.7001 4.8999C14.8001 3.9999 13.5001 3.3999 12.0001 3.3999C9.2001 3.3999 6.8001 5.6999 6.8001 8.5999H3.8001C3.2001 8.5999 2.6001 9.0999 2.6001 9.7999V18.3999C2.6001 19.0999 3.2001 19.5999 3.8001 19.5999H20.1001C20.8001 19.5999 21.3001 18.9999 21.3001 18.3999V9.7999C21.4001 9.0999 20.9001 8.5999 20.2001 8.5999ZM15.0001 8.5999H9.0001V8.4999C9.0001 6.7999 10.3001 5.4999 12.0001 5.4999C12.8001 5.4999 13.6001 5.7999 14.1001 6.3999C14.7001 6.8999 15.0001 7.6999 15.0001 8.4999V8.5999Z"
+              fill="#D7D7D7"
+            />
+          </svg>
+        </div>
+        Кейсы
+      </div>
+    </a>
+
+    <a href="#" class="mobile-link __menu">
+      <div class="mobile-item">
+        <div class="mobile-icon">
+          <svg
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21.7 7.4C22.6 7.4 23.4 6.6 23.4 5.7C23.4 4.8 22.6 4 21.7 4C20.8 4 20 4.8 20 5.7C20 6.6 20.8 7.4 21.7 7.4Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M21.7 13.4C22.6 13.4 23.4 12.6 23.4 11.7C23.4 10.8 22.6 10 21.7 10C20.8 10 20 10.8 20 11.7C20 12.6 20.8 13.4 21.7 13.4Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M21.7 19.4C22.6 19.4 23.4 18.6 23.4 17.7C23.4 16.8 22.6 16 21.7 16C20.8 16 20 16.8 20 17.7C20 18.6 20.8 19.4 21.7 19.4Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M17 7.4H2.7C1.8 7.4 1 6.6 1 5.7C1 4.8 1.8 4 2.7 4H17C17.9 4 18.7 4.8 18.7 5.7C18.7 6.6 17.9 7.4 17 7.4Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M17 13.4H2.7C1.8 13.4 1 12.6 1 11.7C1 10.8 1.8 10 2.7 10H17C17.9 10 18.7 10.8 18.7 11.7C18.7 12.6 17.9 13.4 17 13.4Z"
+              fill="#D7D7D7"
+            />
+            <path
+              d="M17 19.4H2.7C1.8 19.4 1 18.6 1 17.7C1 16.8 1.8 16 2.7 16H17C17.9 16 18.7 16.8 18.7 17.7C18.7 18.6 17.9 19.4 17 19.4Z"
+              fill="#D7D7D7"
+            />
+          </svg>
+        </div>
+        Меню
+      </div>
+    </a>
+  </div>
+</div>

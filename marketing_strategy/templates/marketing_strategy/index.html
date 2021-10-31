@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <div class="hero hero-strategy">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn red">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Что такое <span class="red">маркетинговая стратегия ?</span></h2>
+            <p class="page-txt">
+              Профессионально созданная маркетинговая стратегия – это сочетание точных наук и креативного подхода, серьезных маркетинговых инструментов и светлых умов стратегических маркетологов. Маркетинговая стратегия в Ташкенте от 220Studio – это именно такой продукт. Мы проведем доскональное исследование и позиционирование вашей компании, определим сильные и слабые стороны товаров, услуг и текущего маркетинга и создадим новую, эффективную и успешную стратегию для маркетинга.
+            </p>
+
+            <h2 class="page-title">Зачем нужна <span class="red">маркетинговая стратегия ?</span></h2>
+            <p class="page-txt">
+             Вы создали новый продукт и необходимо вывести его на рынок? Понимаете, что ваши товары и услуги могут продаваться активнее, но уперлись в стеклянный потолок и вы не видите новых возможностей рынка? Или вы не поспеваете за современными технологиями и не можете активно продвигаться в digital маркетинге? Во всех этих и многих других случаях «лечение» одно – вам необходима новая, комплексная маркетинговая стратегия в Ташкенте! Мы найдем новые и усилим действующие преимущества ваших товаров и поможем вывести продажи на новый уровень.
+            </p>
+
+            <h2 class="page-title">Маркетинговая стратегия <span class="red">220Studio</span></h2>
+            <p class="page-txt">
+             В своей работе по созданию маркетинговых стратегий мы используем только описанный выше комплексный подход. После детального изучения текущего состояния дел вы получите новый или полностью преображенный действующий сайт, который будет доносить преимущества компании, продукта. Также наши специалисты создадут креативную упаковку вашего бизнеса с помощью брендинга, нейминга, рекламных креативов и баннеров. После этого в работу включаются директологи – они настроят и запустят рекламные кампании в системах контекстной рекламы. Параллельно с ними SMM специалисты наладят эффективную работу в социальных сетях. И в завершение мы осуществим настройку и отслеживание эффективности маркетинга, продаж посредством анализа показателя ROMI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Этапы <span class="red">работы:</span></h2>
+
+          <div class="page-process">
+            {% for step in work_steps %}
+              <div class="page-content">
+                <div class="page-heading red__dots">{{ step.title }}</div>
+                <!--<p>{{ step.text }}</p>-->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+  {% endblock %}

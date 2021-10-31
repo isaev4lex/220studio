@@ -1,0 +1,105 @@
+.services
+  &-scroll
+    display: grid
+    grid-template-columns: repeat(4, 1fr )
+    width: 100%
+    max-width: 1392px
+    margin: 0 auto
+    margin-top: 84px
+    gap: 64px
+    position: relative
+  &-card
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    overflow: hidden
+    position: relative
+    width: 100%
+    max-width: 300px
+    height: 100%
+    min-height: 385px
+    background-color: #fff
+    border-radius: 0.75em
+    padding: 40px 20px 20px
+    z-index: 2
+    span 
+      position: absolute
+      display: block
+      width: 0
+      height: 0
+      border-radius: 50%
+      transform: translate(-50%, -50%)
+      z-index: -1
+      transition: width 0.6s ease-in-out, height 0.6s ease-in-out
+    &:hover
+      animation: pulse 1s infinite
+      span
+        width: 300%
+        height: 300%
+      .services-card__icon
+        fill: #fff
+      .services-card__title
+        color: #fff 
+      .services-card__btn
+        border-color: #fff
+        color: #fff
+    &:first-child       
+      span
+        background-color: #29ccb8
+    &:nth-child(2)
+      span
+        background-color: #0057FF
+    &:nth-child(3)
+      span
+        background-color: #9520F1
+    &:nth-child(4)
+      span
+        background-color: #ff7F00
+    &:nth-child(5)
+      span
+        background-color: #04B2D8
+    &:nth-child(6)
+      span
+        background-color: #FF3D12
+    &:nth-child(7)
+      span
+        background-color: #F3C00A
+    &:last-child
+      span
+        background-color: #FF488A
+    &__icon
+      display: block
+      margin: 0 auto
+      transition: all 0.3s ease-in-out
+    &__title
+      text-align: center
+      font-size: 2.8rem
+      font-weight: 500
+      transition: color 0.6s ease-in-out
+    &__btn
+      display: inline-block
+      padding: 13px 0
+      text-align: center
+      border: 2px solid #062C84
+      font-size: 2.1rem
+      font-weight: 700
+      border-radius: 4px
+      color: #062C84
+      transition: color 0.6s ease-in-out, border-color 0.6s ease-in-out, background-color 0.4s ease-in-out
+      // cursor: url('../img/5555.png'), pointer
+
+@keyframes pulse
+  0%
+    box-shadow: 0 0 0 0 rgba(192, 192, 192, 1)
+  70% 
+    box-shadow: 0 0 0 15px rgba(192, 192, 192, 0)
+  100%
+    box-shadow: 0 0 0 0 rgba(192, 192, 192, 0)
+
+@keyframes active
+  0%
+    box-shadow: 0 0 0 0 rgba(239, 17, 17, 1)
+  70% 
+    box-shadow: 0 0 0 15px rgba(239, 17, 17, 0)
+  100%
+    box-shadow: 0 0 0 0 rgba(239, 17, 17, 0)

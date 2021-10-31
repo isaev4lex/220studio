@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-brandbook">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn yellow">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Что такое <span class="yellow">брендинг и айдентика?</span></h2>
+            <p class="page-txt">
+              Бренд – это готовый образ компании, ее товара и услуг. А айдентика (формирование бренда) – это набор инструментов и средств, которые этот образ формируют. Образно говоря, это передача содержания через форму. Брендинг и айдентика позволяют сделать вас запоминающимися и узнаваемыми. Также это отличный инструмент позиционирования себя на рынке. Разработка брендбуков в Ташкенте – один из основных видов деятельности нашей студии.
+            </p>
+
+            <h2 class="page-title">Брендинг глазами <span class="yellow">220studio?</span></h2>
+            <p class="page-txt">
+              Мы относимся к разработке брендбуков в Ташкенте как к строгой, почти научной работе и свободному творчеству одновременно. «Работа» подразумевает строгий порядок действий, формирование технического задания и строгое следование ему, тщательный анализ брендов вашей рыночной ниши и выделение наиболее интересных моментов. А «свободное творчество» – это полет фантазии, мозговые штурмы и все иные способы создания креативных концепций. И всё это – для достижения стопроцентного результата!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Этапы <span class="yellow">работы:</span></h2>
+
+          <div class="page-process">
+            {% for step in work_steps %}
+              <div class="page-content">
+                <div class="page-heading yellow__dots">{{ step.title }}</div>
+                <!--<p>{{ step.text }}</p>-->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="page-questions">
+            <h2 class="page-title">Что такое <span class="yellow">Логобук ?</span></h2>
+            <p>
+              Создание брендбука в 220Studio подразумевает также и разработку логобука – в Ташкенте подобную услугу оказывают немногие. Логобук – это детальное описание всех технических параметров логотипа и детальные инструкции по его использованию на брендированной продукции – бланках, ручках и пр. Предусматривается вариант черно-белого исполнения и множество прочих деталей, позволяющих держать марку при любых обстоятельствах.
+            </p>
+            <img src="{% static '/img/logobook.jpg' %}" alt="Логобук" class="page-minibanner" />
+            <h2 class="page-title">Что такое <span class="yellow">Гайдбук ?</span></h2>
+            <p>
+              Еще один элемент брендинга – гайдбук. Это свод правил, регламентирующих использование фирменного стиля. В нем мы понятно и конкретно расскажем, как можно эффективно использовать фирменный стиль и покажем, как использовать его не надо. Шрифты, цвета в различных палитрах (RGB, CMYK, PANOTNE) и другие детали – все будет подробно расписано при разработке гайдбука в Ташкенте.
+            </p>
+            <img src="{% static '/img/guidebook.jpg' %}" alt="Гайдбук" class="page-minibanner" />
+            <h2 class="page-title">Что такое <span class="yellow">Брендбук ?</span></h2>
+            <p>
+              Брендбук – это «библия» фирменного стиля компании. Официальный документ, в котором описаны внутренняя философия и внешняя «упаковка» бренда. Также описаны позиционирование компании, ее ниши на рынке и потенциальная целевая аудитория. Это фундаментальный труд, который является инструкцией для сотрудников отдела маркетинга и рекламы, а также руководителей и владельцев бизнеса. Хотите профессиональную разработку брендбука в Ташкенте? Добро пожаловать!
+            </p>
+            <img src="{% static '/img/brandbook.jpg' %}" alt="Брендбук" class="page-minibanner" />
+          </div>
+        </div>
+      </section>
+
+      <!--<section>-->
+      <!--  <div class="container">-->
+      <!--    <h2 class="page-title page-align">Услуги</h2>-->
+      <!--    <div class="page-tariffs-brandbook">-->
+      <!--      {% for tariff in tariffs %}-->
+      <!--        <div class="page-card">-->
+      <!--          <h3 class="yellow">{{ tariff.title }}</h3>-->
+      <!--          {% for item in tariff_list %}-->
+      <!--            {% if item.tariff == tariff %}-->
+      <!--              <p>{{ item.list }}</p>-->
+      <!--            {% endif %}-->
+      <!--          {% endfor %}-->
+      <!--          <hr />-->
+      <!--          <div class="page-price"><span class="yellow">{{ tariff.price }}</span> сум</div>-->
+      <!--          <a href="#" class="page-btn yellow__bg">Оставить заявку</a>-->
+      <!--        </div>-->
+      <!--      {% endfor %}-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</section>-->
+
+      {% include 'feedback.html' %}
+
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+  {% endblock %}

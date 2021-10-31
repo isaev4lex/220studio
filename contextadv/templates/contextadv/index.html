@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <div class="hero hero-contextadv">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn lblue">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Что такое <span class="lblue">контекстная реклама ?</span></h2>
+            <p class="page-txt">
+              Контекстная реклама в Ташкенте – один из самых новых и эффективных рекламных рынков. Рекламные показы основаны на личных предпочтениях, гендерных, географических и иных данных пользователя, что повышает вероятность отклика на рекламный показ. Пользователю в интернете показывают текстовую или баннерную рекламу только тех товаров, которые он искал в поисковиках, про которые читал и т.д. Точно в цель!
+            </p>
+            
+            
+           
+
+            <h2 class="page-title">О контекстной рекламе <span class="lblue">220Studio</span></h2>
+            <p class="page-txt">
+              Контекстная реклама в Ташкенте от нашей студии организовывается в строго соответствии с самыми современными правилами и стратегиями. Мы работаем со всеми форматами контекстной рекламы и используем различные инструменты для улучшения качества кампании. Работая с нами, вы получаете:
+            </p>
+          </div>
+          
+          
+          
+          
+          
+           
+            <div class="page-stat">
+            <div class="container">
+              <div class="page-wrapper">
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="lblue"> 34,87 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">население Узбекистана</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="lblue"> 22,1 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">интернет-пользователей в Узбекистане</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="lblue"> 5 </span>
+                    млрд.
+                  </div>
+                  <div class="page-subtxt">посещений поисковых систем</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="lblue"> 63% </span>
+                  </div>
+                  <div class="page-subtxt">Бизнесов переходят в онлайн</div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+            
+          
+          
+
+          <div class="page-works">
+            <h2 class="page-title">Этапы <span class="lblue">работы:</span></h2>
+            <div class="page-works-inner">
+              {% for step in work_steps %}
+                <div class="page-works-card">{{ step.number }}. {{ step.text }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Инструменты <span class="lblue">контекстной рекламы:</span></h2>
+          <div class="page-tools">
+            <div class="page-tools-inner">
+              {% for tool in tools %}
+                <div class="page-tools-card">
+                  <img src="{{ tool.img.url }}" alt="" />
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Услуги <span class="lblue">контекстной рекламы:</span></h2>
+          <div class="page-services">
+
+            {% for tool_desc in tools_description %}
+              <div class="page-services-item">
+                <h3 class="page-services-title"><span class="lblue"> {{ tool_desc.title }}</span></h3>
+                <div class="page-services-text">
+                  <p>
+                   {% autoescape off %}{{ tool_desc.description }}{% endautoescape %}
+                  </p>
+                </div>
+                <div class="page-services-lists">
+                  {% for possibility in tools_possibilities %}
+                    {% if possibility.tool == tool_desc %}
+                      <div class="page-services-list">{{ possibility.possibilities }}</div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+  {% endblock %}

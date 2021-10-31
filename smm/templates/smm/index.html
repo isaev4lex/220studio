@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-smm">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn green__smm">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+              <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item" />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Немного об <span class="green__smm">Услуге</span></h2>
+            <p class="page-txt">
+              SMM-продвижение – важнейший инструмент развития бренда, повышения лояльности целевой аудитории и эффективного взаимодействия с ней. Грамотное продвижение бизнеса в социальных сетях позволяет получить максимальный охват, лидогенерацию и вовлечение ЦА в воронки продаж. Но эффект будет только в случае действительно профессионального подхода.
+            </p>
+
+            <h2 class="page-title">Что значит SMM в <span class="green__smm">Узбекистане?</span></h2>
+            <p class="page-txt">
+              В последние годы бизнес в Узбекистане стремительно переносится из реального мира в мир виртуальный. Да и общение людей все больше происходит через социальные медиа в интернете. Поэтому не использовать SMM-продвижение в Ташкенте и Узбекистане в целом – непростительная халатность для любой современной компании и предпринимателя. Привлечение аудитории через социальные сети и вовлечение ее в коммуникацию с вами – рабочая и по-настоящему эффективная модель, приносящая отличный результат. Популярность социальных сетей бесспорна, аудитория растет ежеминутно. Следовательно, и эффект от SMM продвижения в Ташкенте может стать колоссальным. Главное – не упустить момент и начать действовать незамедлительно.
+            </p>
+          </div>
+
+          <div class="page-stat">
+            <div class="container">
+              <div class="page-wrapper">
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="green__smm"> 34,87 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">население Узбекистана</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="green__smm"> 22,1 </span>
+                    млн.
+                  </div>
+                  <div class="page-subtxt">интернет-пользователей в Узбекистане</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="green__smm"> 2000+ </span>
+                    тыс.
+                  </div>
+                  <div class="page-subtxt">стартапов открывается ежедневно</div>
+                </div>
+
+                <div class="page-item">
+                  <div class="page-number">
+                    <span class="green__smm"> 4.2+ </span>
+                    млрд.
+                  </div>
+                  <div class="page-subtxt">рекламных кампаний ежедневно</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-background">
+        <div class="container">
+          <h2 class="page-title"><span class="green__smm">SMM</span> в бизнесе каков он?</h2>
+
+          <div class="page-business">
+            <div class="page-container">
+              <div class="page-subtitle">
+                01.
+                <span class="green__smm">Разрабатываем уникальные SMM-стратегии:</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Никаких шаблонов – только разработка персональной стратегии продвижения в соцсетях.</p>
+                <p>Вы получите уникальную стратегию, подстроенную под ваш бизнес и релевантную аудиторию.</p>
+                <p>Никаких штампов, только оригинальная, тщательно продуманная и взвешенная концепция, детальный контент-план и тонкий таргетинг рекламных кампаний.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                02.
+                <span class="green__smm">Создаем авторский контент:</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Пишем тексты с исключительной полезностью – интересные, актуальные, грамотные и вовлекающие.</p>
+
+                <p>Каждый материал направлен на прямое и косвенное информирование о пользе и ценности ваших товаров и услуг в привязке к лучшим рыночным трендам.</p>
+              </div>
+            </div>
+
+            <div class="page-container">
+              <div class="page-subtitle">
+                03.
+                <span class="green__smm">Сегментируем целевую аудиторию вашего бизнеса:</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Разрабатываем портреты целевой аудитории по более чем тридцати демографическим признакам.</p>
+
+                <p>Доскональная фрагментация аудитории позволяет не тратить силы на охват не релевантных пользователей, а сконцентрироваться на максимальной отдаче от работы с непосредственной целевой аудиторией во всех популярных социальных сетях.</p>
+                
+                <p>Никаких осечек, рикошетов, хаотичной дроби и холостых – все «выстрелы» точно в цель.</p>
+              </div>
+            </div>
+            
+            <div class="page-container">
+              <div class="page-subtitle">
+                04.
+                <span class="green__smm">Поддерживаем непрерывную активность:</span>
+              </div>
+              <div class="page-paragraph">
+                <p>Выстраиваем грамотный комьюнити менеджмент с помощью различных интерактивов и брендинговых постов.</p>
+
+                <p>Вовлекаем аудиторию социальных сетей в диалог, оперативно анализируем качество обратной связи и производим необходимую коррекцию SMM продвижения в Узбекистане в режиме онлайн. </p>
+                
+                <p>Обрабатываем все запросы потребителей, определяем их боли и мгновенно реагируем на них. Все это способствует формированию положительного информационного поля и вовлечению.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Как ведётся работа по <span class="green__smm">SMM?</span></h2>
+
+          <div class="page-process">
+            <div class="page-content">
+              <div class="page-heading green__dots">Анализ и изучение</div>
+              <p>анализируем текущую ситуацию всех социальных сетей и площадок или создание их с нуля</p>
+            </div>
+
+            <div class="page-content">
+              <div class="page-heading green__dots">Цели и задачи</div>
+              <p>строим цели, задачи и KPI, а также формируем бюджет и инструментарий</p>
+            </div>
+
+            <div class="page-content">
+              <div class="page-heading green__dots">Старт работы</div>
+              <p>создаём и размещаем креативы, настраиваем рекламные кампании</p>
+            </div>
+
+            <div class="page-content">
+              <div class="page-heading green__dots">Упаковка страниц</div>
+              <p>упаковка страниц и разработка концепции дизайна и единого стиля публикаций</p>
+            </div>
+
+            <div class="page-content">
+              <div class="page-heading green__dots">Стратегия и контент план</div>
+              <p>разрабатываем стратегию продвижения и контент - план на основе целей и задач</p>
+            </div>
+
+            <div class="page-content">
+              <div class="page-heading green__dots">Анализ и итоги</div>
+              <p>проводим анализ и подготавливаем статистический материал и отчет</p>
+            </div>
+          </div>
+
+          <div class="page-motto"><span class="green__smm">SMM - продвижение</span> рабочий канал для привлечения аудитории!</div>
+        </div>
+      </section>
+
+      <section class="tariffs">
+        <div class="container">
+          <h2 class="page-title page-align">Тарифы</h2>
+
+          <div class="page-tariffs">
+            {% for tariff in tariffs %}
+              <div class="page-card">
+                <div class="page-card-block">
+                  <h3 class="green__smm page-card-title">
+                    {{ tariff.title }}
+                    <div class="page-card-close">
+                      <svg width="35" height="35" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg" class="page-card-icon">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M13.8 12.9426V4.14258H16.2V12.9426L25 12.9426V15.3426H16.2V24.1425H13.8V15.3426L5 15.3426V12.9426L13.8 12.9426Z"
+                          fill="#29CCB8"
+                        />
+                      </svg>
+                    </div>
+                  </h3>
+                </div>
+                <div class="page-card-subblock">
+                  {% for item in tariff_list %}
+                    {% if item.tariff == tariff %}
+                      <p>{{ item.list }}</p>
+                    {% endif %}
+                  {% endfor %}
+                  <hr />
+                  <div class="page-price"><span class="green__smm">{{ tariff.price }}</span> сум</div>
+                  <a href="#" class="page-btn green__smmbg">Оставить заявку</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="page-title">С нами <span class="green__smm">сотрудничают:</span></div>
+    
+          <!-- Slider main container -->
+          <div class="swiper-container swiper-container-partners">
+              <!-- Additional required wrapper -->
+            <div class="swiper-wrapper swiper-wrapper-case">
+              {% for partner in partners %}
+                <div class="swiper-slide">
+                  <div class="page-icon">
+                    <img src="{{ partner.img.url }}" alt="" />
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/swiper-bundle.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+      <script src="{% static '/js/tariffs.js' %}"></script>
+      <script src="{% static '/js/partners.js' %}"></script>
+  {% endblock %}

@@ -1,0 +1,118 @@
+html
+  font-size: 10px
+  font-family: 'Google Sans'
+  // cursor: url('../img/mouse.svg'), auto
+
+body
+  font-size: 1.6rem
+  color: #062C84
+  .no-scroll
+    overflow: hidden
+
+.page
+  display: flex
+  flex-direction: column
+  height: 100vh
+  overflow-x: hidden
+
+// html, body 
+//   height: 100%
+//   overflow: hidden
+
+.container 
+  width: 90%
+  max-width: 1692px
+  margin: 0 auto
+
+.logo
+  display: block
+
+.title
+  font-size: 4.5rem
+  font-weight: 700
+  text-align: center
+
+section
+  padding-top: 84px
+  padding-bottom: 37px
+  background-color: #f5f5f5
+
+.background
+  background-image: url('../img/background.png')
+  background-repeat: no-repeat
+  background-position: center right
+  background-attachment: fixed
+
+.mb-0
+  margin-bottom: 0 !important
+
+  
+#toTop 
+  width: 50px
+  height: 50px
+  border-radius: 100%
+  overflow: hidden
+  position: fixed
+  bottom: 20px
+  right: 20px
+  cursor: pointer
+  border: 1px solid transparent
+  display: none
+  svg
+    transition: all .5s ease
+    &:hover
+      fill: #E0862E
+
+.dots
+  display: inline-block
+  width: 30px
+  height: 30px
+  border: 2px solid #fff
+  border-radius: 100% 
+  cursor: pointer
+  &-active
+    background-color: #fff
+  &:nth-child(2)
+    margin: 0 15px 
+
+  
+.swiper-pagination-hero
+  display: inline-block !important
+  left: 114px !important
+  width: auto !important
+  bottom: 85px !important
+
+.cursor
+  transition-duration: 200ms
+  transition-timing-function: ease-out
+  animation: cursorAnim 1s infinite alternate
+  width: 50px
+  height: 50px
+  border: 12px solid #497DDD
+  border-radius: 50%
+  position: relative
+  // &::after
+  //   content: ''
+  //   width: 50px
+  //   height: 50px
+  //   position: absolute
+  //   border: 10px solid gray
+  //   background-color: gray
+  //   border-radius: 50%
+  //   opacity: .5
+  //   top: -22px
+  //   left: -22px
+  //   animation: cursorAnim2 1s infinite alternate
+
+.customCursor 
+  width: 30px
+  height: 30px
+  border: 7px solid #497DDD
+  border-radius: 50%
+  position: absolute
+  transform: translate(-50%, -50%)
+  pointer-events: none
+  transition: all 0.3s ease-in-out
+  transition-property: background, transform, border
+  transform-origin: 100% 100%
+  z-index: 3

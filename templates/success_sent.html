@@ -1,0 +1,12 @@
+{% load static %}
+{% if success_sent  == True %}
+  {% block head %}
+    <link rel="stylesheet" href="{% static '/css/success.min.css' %}" />
+  {% endblock %}
+  <div class="success">
+    <div class="success-window">
+      <p>Ваша заявка успешно отправлена !</p>
+      <a href="{% url page %}">Подтвердить</a>
+    </div>
+  </div>
+{% endif %}

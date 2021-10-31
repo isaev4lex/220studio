@@ -1,0 +1,229 @@
+@media screen and ( min-width: 320px) and ( max-width: 768px)
+
+  .mobile
+    display: flex
+
+  .cursor
+    display: none
+
+  .nav
+    display: none
+
+  .header
+    &-inner
+      grid-template-columns: 1fr
+      justify-items: center
+    &-logo
+      margin: 0 auto
+      &__main
+        fill: #4539F8
+    &-contact
+      display: none
+
+  .hero
+    &-content
+      padding: 25px 35px
+      height: 50vh
+    &-main
+      background-color: #0057FF
+    &-title
+      font-size: 6rem
+      margin-top: 0
+    &-subtitle
+      font-size: 2rem
+      margin-top: 0
+    &-logo
+      display: none
+    &-info
+      display: flex
+      flex-direction: column
+    &-btn
+      margin-top: auto
+      width: 100%
+
+  .services
+    // overflow-x: auto
+    // min-width: 800px
+    // grid-template-columns: 1fr
+    // gap: 40px
+    // justify-items: center
+    &-scroll
+      grid-template-columns: repeat(8, 300px)
+      overflow-x: auto
+      width: 100%
+      // min-width: 1200px
+      padding: 20px
+      gap: 34px
+
+  .stat
+    grid-template-columns: 1fr 1fr
+    color: #0057FF
+    gap: 37px
+    &-icon
+      svg
+        path
+          fill: #0057FF
+
+  .steps
+    &-title
+      text-align: center
+      font-weight: 700
+    &-text
+      margin: 0 auto
+      width: 100%
+      max-width: 550px
+      line-height: 1.8
+  
+  .page
+    &-wrapper
+      grid-template-columns: repeat(2, 1fr )
+      margin-bottom: 50px
+      gap: 50px
+    &-item
+      &::after
+        right: -9%
+      &:nth-child(2)
+        &::after
+          display: none
+    &-process
+      grid-template-columns: 1fr
+      gap: 60px
+    &-tariffs
+      grid-template-columns: 1fr
+    &-card
+      width: 100%
+      border-radius: 0
+      overflow: hidden
+      padding: 0
+      margin-bottom: 15px
+      h3
+        width: 100%
+        padding: 25px 35px
+        text-align-last: left
+        margin-bottom: 0
+        position: relative
+      &-title
+        display: flex
+        justify-content: space-between
+        align-items: center
+      hr
+        margin-top: 0
+      p
+        &:first-child
+          margin-top: 34px
+      &-block
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+      &-subblock
+        padding: 0px 34px 
+        max-height: 0
+        transition: all .3s ease-in-out
+      &:hover
+        transform: none
+      &-close
+        display: flex
+        align-items: center
+        justify-content: start
+        transition: all .3s ease-in-out
+        svg
+          display: block
+          transition: all .3s ease-in-out
+          path
+            //  fill: #29CCB8
+    &-business
+      gap: 20px
+    &-stat > .container
+      width: 100%
+
+  .card-rotate
+    transform: rotate(135deg)
+    svg
+      path
+        fill: #062C84 
+
+  .tariffs > .container
+    width: 100%
+
+  .case
+    grid-template-columns: 1fr
+    &-slider
+      grid-row-start: 1
+    &-link
+
+
+  .contactBlock > .container
+    width: 100%
+
+  .swiper-pagination
+    &-hero
+      display: inline-block !important
+      left: 50% !important
+      transform: translateX(-50%) !important
+      width: auto !important
+      bottom: 20px !important
+
+  .steps
+    &-card
+      flex-direction: column
+      margin-bottom: 45px
+    &-number
+      margin-bottom: 30px
+      font-size: 8rem
+      width: 140px
+      height: 140px
+      &::after
+        width: 140px
+        height: 140px
+      &::before
+        width: 140px
+        height: 140px
+    &-text
+      text-align: center
+
+  .contact
+    grid-template-columns: 1fr
+    padding: 20px 
+    background-image: none
+    border-radius: 0
+    &-title
+      font-size: 4rem
+      text-align: center
+      margin-bottom: 20px
+      text-align-last: left
+    &-form 
+      label
+        font-size: 2rem
+      input
+        font-size: 1.5rem
+      select
+        font-size: 1.5rem
+      button
+        font-size: 1.5rem
+        margin: 0 auto
+        width: 100%
+
+  .footer
+    &-top
+      grid-template-columns: 1fr
+      gap: 40px
+      padding: 60px 0 25px 0
+      h4
+        margin-bottom: 20px
+        color: #0057FF
+    &-logo
+      display: block
+      width: 100%
+      border-top: 2px solid #212F43
+      justify-self: left
+      padding: 30px 0 0
+      &__color
+        fill: #4539F8
+    &-bottom
+      padding-bottom: 104px
+      padding-top: 0
+    &-rights 
+      font-size: 1rem
+
+  .green
+    color: #0057FF !important
+    &__bg
+      background-color: #0057FF  !important

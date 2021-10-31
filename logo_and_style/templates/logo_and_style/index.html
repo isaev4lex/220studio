@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+
+      {% include 'feedback_modal.html' %}
+      {% include 'success_sent.html' %}
+
+      <!-- hero -->
+      <div class="hero hero-style">
+        {% for banner in main_banners %}
+          <div class="container hero-content">
+            <div class="hero-info">
+              <div class="hero-title">{{ banner.title }}</div>
+              <div class="hero-subtitle">{{ banner.subtitle }}</div>
+              <a href="#contact" class="hero-btn orange">Оставить заявку</a>
+            </div>
+            <div class="hero-logo">
+                <img src="{{ banner.logo.url }}" alt="Логотип" class="hero-logo__item"   />
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <section>
+        <div class="container">
+          {% for banner in mini_banners %}
+            <div class="page-banner">
+                <picture>
+                  {% if banner.mobile %}
+                    <source
+                      srcset="{{ banner.mobile.url }}" 
+                      media="(max-width:768px)"
+                    /> <!--Мобильный баннер-->
+                  {% endif %}
+                  {% if banner.desktop %}
+                    <img src="{{ banner.desktop.url }}" alt="SMM Баннер" /> <!--Дексктопный баннер-->
+                  {% endif %}
+                </picture>
+            </div>
+          {% endfor %}
+
+          <div class="page-info">
+            <h2 class="page-title">Что такое <span class="orange">стиль</span></h2>
+            <p class="page-txt">
+              Фирменный стиль компании – это все элементы визуального восприятия бренда его партнерами и клиентами, включая даже название компании и ее продуктов. Базовым элементом фирменного стиля является логотип и корпоративные цвета. На этом строится дальнейшая разработка фирменного стиля – визитки, бланки, канцелярская и сувенирная продукция, фирменная одежда и многое другое. Основные правила, требования и описания фирменного стиля оформляются в документ, который называется брендбук.
+            </p>
+
+            <h2 class="page-title">Как логотип влияет на <span class="orange">узнаваемость?</span></h2>
+            <p class="page-txt">
+              Качественный, профессионально продуманный логотип – это не просто красивая картинка и текст. Это концепция и даже целая корпоративная философия.
+Предлагаем профессиональные услуги по разработке логотипа в Ташкенте и создание фирменного стиля «под ключ», включая формирование брендбука.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Эволюция логотипа <span class="orange">Studio:</span></h2>
+          <div class="page-evolution">
+            <img src="{% static '/img/logo-evolution.jpg' %}" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="page-info">
+            <h2 class="page-title">Итог - зачем нам пришлось поменять логотип <span class="orange">Studio?</span></h2>
+            <p class="page-txt">
+              Изначально нашим основным бизнесом был большой интернет-магазин 220Volt. Однако достаточно быстро мы начали развивать и другие направления бизнеса – в том числе и в области цифрового маркетинга и других услуг в сфере digital. <br><br>
+
+В результате обсуждения было решено создать новый логотип – за счёт исключения слова Volt и стилизованной кнопки Power логотип стал более коротким и, что еще важнее, универсальным. Теперь мы можем позиционировать себя фактически на любом рынке.
+<br><br>
+В итоге мы создали логотип не только на действующие сейчас бизнес-проекты, но и с запасом на будущее развитие. Поэтому мы готовы помочь в этом каждому, кто заинтересован в развитии и непрерывном движении.<br><br>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Пример успешного <span class="orange">брендинга:</span></h2>
+
+          <div class="page-brandings">
+            <div class="page-brands">
+              <div class="page-collage">
+                <img src="{% static '/img/starbucks.jpg' %}" alt="" />
+              </div>
+              <div class="page-window">
+                <h3 class="page-starbucks orange">Starbucks</h3>
+                <p>
+                  За 50 летнюю историю существования Starbucks меняла логотипы 4 раза и несколько раз проводила масштабный ребрендинг. Результат – почти 30 000 кофеен «Старбакс» работают в 75 странах мира, а их ставший легендарным фирменный стаканчик для кофе – объект для селфи (и бесплатной рекламы) миллионов людей по всему миру.
+                </p>
+              </div>
+            </div>
+
+            
+            <div class="page-brands">
+              <div class="page-window">
+                <h3 class="page-mcdonalds orange">McDonald's</h3>
+                <p>
+                  Феномен успеха этого изначально заурядного ресторана-забегаловки не только в успешной экономической модели, но и в профессиональном, а порой и гениальном маркетинге, брендинге и позиционировании. Результатом многолетней работы маркетологов стало то, что ресторан с радостью посещают люди всех возрастов и, что еще более удивительно, самого разного достатка.
+                </p>
+              </div>
+              <div class="page-collage">
+                <img src="{% static '/img/mcdonalds.jpg' %}" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Пример не очень успешного <span class="orange">брендинга:</span></h2>
+
+          <div class="page-brandings">
+            <div class="page-brands">
+              <div class="page-collage">
+                <img src="{% static '/img/capital_one.png' %}" alt="" />
+              </div>
+              <div class="page-window">
+                <h3 class="page-starbucks orange">Capital One</h3>
+                <p>
+                 Причина признания провальным ребрендинг глобального финансового игрока Capital One была в той самой "галочке", которую "специалисты" зачем-то вставили в логотип. Это делалось миллион раз миллионами фирм, причем еще сто лет назад. В 2008 году подобный ход был уже явным и ужасным клише, затасканным дизайнерским штампом.
+                </p>
+              </div>
+            </div>
+
+            <div class="page-brands">
+              <div class="page-window">
+                <h3 class="page-apple orange">Олимпийские игры в лондоне (2012)</h3>
+                <p>
+                  Олимпийские Игры в Лондоне в 2012 году запомнились не только громкими победами и неожиданными поражениями, но и волной критики в сторону логотипа Игр. Логотип был воспринят детским, страшным и недостойным для представления Лондонских Игр.
+                </p>
+              </div>
+              <div class="page-collage">
+                <img src="{% static '/img/olympic_games.png' %}" alt="" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <!--</section>-->
+
+      <!--<section class="page-background">-->
+      <!--  <div class="container">-->
+      <!--    <h2 class="page-title">Какая работа ведется при создании <span class="orange">фирменного стиля?</span></h2>-->
+
+      <!--    <div class="page-business">-->
+      <!--      <div class="page-container">-->
+      <!--        <div class="page-subtitle">-->
+      <!--          01.-->
+      <!--          <span class="orange">Разрабатываем уникальные SMM-стратегии:</span>-->
+      <!--        </div>-->
+      <!--        <div class="page-paragraph">-->
+      <!--          <p>Для каждого проекта разрабатываем стратегию продвижения с пошаговым планом работ:</p>-->
+      <!--          <p>Готовим оригинальную концепцию сообщества в соцмедиа с учетом целей вашего бизнеса.</p>-->
+      <!--          <p>Разрабатываем и размещаем все типы контента. Постоянно и целенаправленно с пользователями.</p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="page-container">-->
+      <!--        <div class="page-subtitle">-->
+      <!--          03.-->
+      <!--          <span class="orange">Сегментируем целевую аудиторию вашего бизнеса:</span>-->
+      <!--        </div>-->
+      <!--        <div class="page-paragraph">-->
+      <!--          <p>Изучаем поведение аудитории в сети. Привлекаем в сообщество действительно заинтересованных пользователей, обеспечиваем:</p>-->
+      <!--          <p>-->
+      <!--            Таргетинг на потенциальных клиентов (с учетом пола, возраста, локации, увлечений, социального статуса, участия в группах-->
+      <!--            конкурентов).-->
+      <!--          </p>-->
+      <!--          <p>Лояльную аудиторию из реальных пользователей, готовых к коммуникации с брендом.</p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="page-container">-->
+      <!--        <div class="page-subtitle">-->
+      <!--          02.-->
+      <!--          <span class="orange">Создаем авторский контент:</span>-->
+      <!--        </div>-->
+      <!--        <div class="page-paragraph">-->
+      <!--          <p>-->
+      <!--            Наши специалисты владеют глубокой экспертизой. Весь контент создают авторы и редакторы, погруженные в нишевую тематику бизнеса,-->
+      <!--            знающие потребности клиентов и их поведение в сети. Получай:-->
+      <!--          </p>-->
+      <!--          <p>На 100% уникальные, полезные и интересные публикации с ненавязчивой подачей маркетинговой информации.</p>-->
+      <!--          <p>Бренд-контент, способный в деталях раскрыть аудитории ценность и выгоды продукта/услуги.</p>-->
+      <!--          <p>Событийный контент с привязкой к трендам отрасли, значимым инфоповодам, включая обзор ваших мероприятий в офлайне.</p>-->
+      <!--          <p>Вирусное распространение контента в социальных сетях, в т. ч. конкурсов, развлекательных постов, акций.</p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="page-container">-->
+      <!--        <div class="page-subtitle">-->
+      <!--          04.-->
+      <!--          <span class="orange">Поддерживаем непрерывную активность:</span>-->
+      <!--        </div>-->
+      <!--        <div class="page-paragraph">-->
+      <!--          <p>-->
+      <!--            Поддерживаем активность в сообществе, обрабатываем обратную связь от клиентов, безошибочно определяя их проблемы и ожидания,-->
+      <!--            обеспечиваем:-->
+      <!--          </p>-->
+      <!--          <p>Позитивное информационное поле в соцмедиа.</p>-->
+      <!--          <p>Доверительные отношения с аудиторией, вовлеченной в постоянный диалог с брендом.</p>-->
+      <!--          <p>Обработку обращений пользователей, включая негатив, в течение трех часов.</p>-->
+      <!--          <p>Собственных лидеров мнений для улучшения репутации бренда.</p>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</section>-->
+
+      <section>
+        <div class="container">
+          <h2 class="page-title">Какая работа ведется при создании <span class="orange">фирменного стиля?</span></h2>
+
+          <div class="page-process">
+            {% for step in work_steps %}
+              <div class="page-content">
+                <div class="page-heading orange__dots">{{ step.title }}</div>
+                <p>{{ step.text }}</p>
+              </div>
+            {% endfor %}
+          </div>
+
+          <!--<div class="page-motto"><span class="orange">SMM - продвижение</span> рабочий канал для привлечения аудитории!</div>-->
+        </div>
+      </section>
+
+      {% include 'feedback.html' %}
+
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+  {% endblock %}

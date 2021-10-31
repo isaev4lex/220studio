@@ -1,0 +1,48 @@
+.steps
+  max-width: 1188px
+  margin: 0 auto
+  &-card
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 160px
+    &:first-child
+      margin-top: 75px
+    &:last-child
+      margin-bottom: 0
+  &-number
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 176px
+    height: 176px
+    font-size: 11.1rem
+    color: #fff
+    font-weight: 900
+    border-radius: 50%
+    position: relative
+    z-index: 5
+    &::before
+      content: ''
+      top: -10px
+      left: -10px
+      position: absolute
+      width: 176px
+      height: 176px
+      background-color: #29CCB8
+      border-radius: 50%
+      z-index: -1
+    &::after
+      content: ''
+      top: 0px
+      left: 0px
+      position: absolute
+      width: 176px
+      height: 176px
+      border: 2px solid #062C84
+      border-radius: 50%
+      z-index: -1
+  &-text
+    font-size: 2.2rem
+    width: 100%
+    max-width: 900px

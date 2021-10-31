@@ -1,0 +1,206 @@
+    {% if request.path == '/smm-prodvijenie/' %}
+      <section class="contactBlock" id="contact">
+        <div class="container">
+          <div class="contact">
+            <h2 class="contact-title">
+              Получите <br />
+              <span class="green"> консультацию </span>
+            </h2>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form green__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/web-razrabotka/' %}
+<!--WEB DEV-->
+      <section class="contactBlock" id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Получите <br />
+              <span class="blue"> консультацию </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form blue__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/seo-prodvijenie/' %}
+<!--SEO-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Расскажите <br />
+              о своём <span class="violet"> проекте </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form__seo violet__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/logotip/' %}
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Расскажите <br />
+              о своём <span class="orange"> проекте </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необъязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form__style orange__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/contextnaya-reklama/' %}
+<!--Context ADV-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Получите <br />
+              <span class="lblue"> консультацию </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form lblue__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/marketingovaya-strategiya/' %}
+<!--marketing strategy-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Получите <br />
+              <span class="red"> консультацию </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form red__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/brendbook/' %}
+<!--BrandBook-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Получите <br />
+              <span class="yellow"> консультацию </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form yellow__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% elif request.path == '/target-reklama/' %}
+<!--Target-->
+      <section id="contact">
+        <div class="container">
+          <div class="contact">
+            <div class="contact-title">
+              Получите <br />
+              <span class="pink"> консультацию </span>
+            </div>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form pink__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+   {% else %}
+      <section class="contactBlock" id="contact">
+        <div class="container">
+
+          <div class="contact">
+            <h2 class="contact-title">
+              Получите <br />
+              <span class="green"> консультацию </span>
+            </h2>
+            <form class="contact-form" method="GET"> {% csrf_token %}
+              <label for="name2">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name2" />
+              <label for="tel2">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel2" />
+              <label for="email2">E-mail:</label>
+              <input name="email" type="email" id="email2" />
+              <label for="site2">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site2" />
+              <button class="contact-form green__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </section>
+{% endif %}

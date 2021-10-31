@@ -1,0 +1,320 @@
+.page
+  &-banner
+    margin-bottom: 80px
+    img
+      display: block
+      width: 100%
+      height: auto
+      border-radius: 0.75em
+  &-minibanner
+    border-radius: 0.5em
+    margin-bottom: 80px
+    &:last-child
+      margin-bottom: 0
+  &-title
+    font-size: 4rem
+    font-weight: 700
+    margin-bottom: 40px
+  &-align
+    text-align: center
+  &-txt
+    font-size: 1.8rem
+    line-height: 1.7
+    margin-bottom: 120px
+  &-subtxt
+    font-size: 2rem
+  &-wrapper
+    display: grid
+    grid-template-columns: repeat(4, 250px)
+    justify-content: space-between
+    width: 100%
+    margin: 0 auto 120px
+    max-width: 1476px
+    background-color: #fff
+    padding: 30px 35px
+    text-align: center
+    border-radius: 0.75em
+  &-item
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      height: 90px
+      width: 2px
+      top: 0
+      right: -25%
+      background-color: #D7D7D7
+    &:last-child
+      &::after
+        display: none
+  &-number
+    font-size: 2.5rem
+    font-weight: 700
+    margin-bottom: 25px
+  &-background
+    background-color: #fff
+  &-business
+    display: grid
+    grid-template-columns: repeat(2, auto )
+    gap: 100px
+  &-subtitle
+    font-size: 3rem
+    font-weight: 700
+    margin-bottom: 30px
+  &-paragraph
+    p
+      font-size: 2.2rem
+      margin-bottom: 30px
+      &:first-child
+        font-weight: 700  
+      &:last-child
+        margin-bottom: 0
+  &-process
+    display: grid
+    grid-template-columns: repeat(3, 390px )
+    justify-content: space-between
+    gap: 90px
+  &-content
+    p
+      font-size: 1.8rem
+  &-heading
+    position: relative
+    font-size: 2.4rem
+    font-weight: 700
+    margin-bottom: 20px
+    margin-left: 30px
+    &::before
+      display: block
+      content: ''
+      position: absolute
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      left: -30px
+      top: 3px
+  &-motto
+    display: inline-block
+    margin-top: 120px
+    font-size: 3rem
+    font-weight: 700
+    padding-bottom: 15px
+    border-bottom: 2px solid #D7D7D7
+  &-tariffs
+    display: grid
+    grid-template-columns: repeat(4, 396px)
+    justify-content: space-between
+    &-brandbook
+      display: grid
+      grid-template-columns: repeat(auto-fill, 540px )
+      justify-content: space-between
+  &-card
+    background-color: #fff
+    border-radius: 0.75em
+    padding: 45px 25px 20px
+    transition: all .3s ease-in-out
+    cursor: default
+    h3
+      font-size: 3.5rem
+      font-weight: 700
+      text-align: center
+      margin-bottom: 35px
+    p
+      font-weight: 500
+      font-size: 2rem
+      margin-bottom: 40px
+      margin-left: 20px
+      position: relative
+      &::before
+        content: ''
+        position: absolute
+        width: 8px
+        height: 8px
+        left: -20px
+        top: 25%
+        background-color: #D7D7D7
+        border-radius: 50%
+    hr
+      margin-top: auto
+      width: 60%
+    &:hover
+      transform: scale(1.05)
+    &-subblock
+      display: flex
+      flex-direction: column
+      height: 90%
+  &-price
+    font-size: 3.2rem
+    text-align: center
+    margin: 0 auto 40px
+    font-weight: 700
+    padding-top: 50px
+  &-btn
+    display: block
+    border-radius: 0.375em
+    color: #fff
+    font-weight: 500
+    font-size: 2rem
+    text-align: center
+    padding: 20px 0
+  &-partners
+    display: grid
+    grid-template-columns: repeat(6, 250px)
+    justify-content: space-between
+    align-items: center
+  &-icon
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #fff
+    border-radius: 0.75em
+    width: 100%
+    max-width: 250px
+    min-height: 140px
+    img
+      display: block
+      width: 100%
+      height: auto
+      object-fit: scale-down
+  &-evolution
+    img
+      display: block
+      border-radius: 0.5em
+  &-brandings
+    display: grid
+    grid-template-columns: 1fr
+    gap: 30px
+  &-brands
+    display: grid
+    grid-template-columns: repeat(2, 1fr )
+    gap: 35px
+    img
+      border-radius: 0.5em
+      width: 100%
+      height: auto
+      object-fit: scale-down
+  &-window
+    background-color: #fff
+    border-radius: 0.5em
+    padding: 60px 60px 120px
+    text-align: center
+    h3
+      font-size: 3.5rem
+      font-weight: 700
+      margin-bottom: 40px
+    p
+      font-size: 2rem
+      line-height: 1.8
+  &-works
+    &-inner
+      display: grid
+      grid-template-columns: repeat(3, auto )
+      justify-content: space-between
+      gap: 100px 50px
+    &-card
+      position: relative
+      font-size: 2.6rem
+      margin-left: 70px
+      &::before
+        content: ''
+        position: absolute
+        width: 50px
+        height: 50px
+        background-image: url(../img/star.svg)
+        background-repeat: no-repeat
+        background-color: #04B2D8
+        background-position: center center
+        border-radius: 50%
+        left: -70px
+        top: -10px
+  &-tools
+    &-inner
+      display: grid
+      grid-template-columns: repeat(3, 1fr )
+      justify-content: space-between
+      gap: 36px
+    &-card
+      display: flex
+      align-items: center
+      justify-content: center
+      border-radius: 0.75em
+      background-color: #fff
+      width: 540px
+      height: 212px
+      overflow: hidden
+      img
+        width: 100%
+        height: auto
+        object-fit: scale-down
+  &-services
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 16px
+    justify-content: space-between
+    &-item
+      background-color: #fff
+      border-radius: 0.75em
+      padding: 45px 35px
+    &-title
+      text-align: center
+      font-size: 3.5rem
+      font-weight: 700
+      margin-bottom: 35px
+    &-text
+      line-height: 1.8
+      font-size: 1.8rem
+      p
+        margin-bottom: 30px
+    &-lists
+      display: grid
+      grid-template-columns: repeat(2, 1fr )
+    &-list
+      font-weight: 500
+      font-size: 1.8rem
+      position: relative
+      margin-left: 25px
+      margin-bottom: 40px
+      &::before
+        content: ''
+        position: absolute
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        background-color: #04B2D8
+        left: -25px
+      &:last-child
+        margin-bottom: 0
+      &:nth-last-child(2)
+        margin-bottom: 0
+  &-questions
+    p
+      margin-bottom: 45px
+      line-height: 1.8
+      font-size: 1.8rem
+  &-jobs
+    &-item
+      display: grid
+      grid-template-columns: repeat(2, auto )
+      margin-bottom: 60px
+      justify-content: space-between
+      gap: 200px
+      &:last-child
+        margin-bottom: 0
+    &-slogan
+      font-weight: 700
+      font-size: 2rem
+      color: #ACACAC
+    &-title
+      font-weight: 700
+      font-size: 2.8rem
+      margin-bottom: 20px
+    &-subtitle
+      font-weight: 700
+      font-size: 2rem
+      margin-bottom: 20px
+    &-subtext
+      font-size: 1.8rem
+      line-height: 1.8
+  &-summary
+    font-size: 2.8rem
+    font-weight: 700
+    margin-top: 60px

@@ -1,0 +1,30 @@
+      <div class="modal">
+        <div class="modal-overlay">
+          <div class="modal-window">
+            <div class="modal-close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                width="40px"
+                height="40px"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <form class="modal-form" method="GET"> {% csrf_token %}
+              <label for="name">Имя и Фамилия:</label>
+              <input name="name" type="text" id="name" />
+              <label for="tel">Номер телефона:</label>
+              <input name="phone" type="tel" id="tel" />
+              <label for="email">E-mail:</label>
+              <input name="email" type="email" id="email" />
+              <label for="site">Сайт компании (Необязательно):</label>
+              <input name="website" type="text" id="site" />
+              <button class="green__bg">Оставить заявку</button>
+            </form>
+          </div>
+        </div>
+      </div>

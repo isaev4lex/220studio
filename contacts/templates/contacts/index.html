@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block head %}
+    {% for meta_tag in meta %}
+        <title>{{ meta_tag.title }}</title>
+        <meta name="description" content="{{ meta_tag.description }}" />
+        <meta name="keywords" content="{{ meta_tag.keywords }}" />
+    {% endfor %}
+    {% for html_tag in head_tags %}
+        {% autoescape off %} {{ html_tag.tag }}{% endautoescape %}
+    {% endfor %}
+    <link rel="stylesheet" href="{% static '/css/style.min.css' %}" />
+  {% endblock %}
+  {% block body %}
+  
+     {% include 'feedback_modal.html' %}
+     {% include 'success_sent.html' %}
+     
+    
+      <!-- hero -->
+      <div class="hero hero-contact">
+        <div class="container hero-content">
+          <div class="hero-info">
+            <div class="hero-title">Контакты</div>
+            <div class="hero-subtitle">
+            
+                  {% for address in contact_info.addresses %}
+                    <a href="{{ address.link }}" class="footer-link" target="blank">{{ address.address }}</a>
+                  {% endfor %}    
+            </div>
+            <!--<p>Себзор 4б</p>-->
+            {% for phone in contact_info.phones %}
+                <a href="tel:{{ phone }}" class="hero-link">
+                  {{ phone }}
+                </a>
+            {% endfor %}
+            <br>
+            {% for email in contact_info.emails %}
+              <a href="mailto:{{ email }}"  class="hero-link">
+                {{ email }}
+              </a>
+            {% endfor %}
+            <p>Мы в социальных сетях:</p>
+            <div class="footer-social">
+              {% for key, value in footer_info.items %}
+                {% for social in value %}
+                  <a href="{{ social.link }}" class="footer-social__item" target="blank">
+                    <img src="{{ social.icon.url }}" alt="{{ key }}" />
+                  </a>
+                {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="hero-map">
+            <script
+              type="text/javascript"
+              charset="utf-8"
+              async
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ada4fff05c6cff6b3c94d9016bb0e2ce1fae672c99a0e31b0384cfeef81118b1a&amp;width=970&amp;height=680&amp;lang=ru_RU&amp;scroll=false"
+            ></script>
+          </div>
+        </div>
+      </div>
+      
+      {% include 'feedback.html' %}
+
+      <script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="{% static '/js/jquery.maskedinput.min.js' %}"></script>
+      <script src="{% static '/js/index.js' %}"></script>
+    {% endblock %}

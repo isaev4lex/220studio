@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% for favicon in favicons %}
+        <meta property="og:image" content="{{ favicon.favicon.url }}">
+        <link rel="icon" href="{{ favicon.favicon.url }}" type="image/x-icon">
+    {% endfor %}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://220studio.uz/">
+    <meta property="og:site_name" content="220studio">
+    <meta property="og:locale" content="ru_RU">
+    <base href="https://220studio.uz/" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block head %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <div class="page">
+      {% include 'header.html' %}
+      {% block body %}
+      {% endblock %}
+      
+      {% include 'footer.html' %}
+      {% include 'mobile.html' %}
+    </div>
+  </body>
+</html>

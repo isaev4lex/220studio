@@ -1,0 +1,30 @@
+.tab
+  &_headers
+    display: flex
+    justify-content: space-between
+    width: 100%
+    max-width: 930px
+    padding-bottom: 15px
+    border-bottom: 1px solid #c4c4c4
+    font-size: 2rem
+    margin-bottom: 20px
+  &_header
+    cursor: pointer
+    &__active
+      color: #8700EB
+  &_show
+    display: grid
+    grid-template-columns: repeat(2, 350px )
+    gap: 100px
+  &_hide
+    display: none
+
+.fade
+  animation-name: fade
+  animation-duration: 2s
+
+@keyframes fade
+  from
+    opacity: 0.1
+  to
+    opacity: 1

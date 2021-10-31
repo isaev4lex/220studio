@@ -1,0 +1,85 @@
+.header
+  // position: fixed
+  top: 0
+  left: 0
+  right: 0
+  width: 100%
+  background-color: rgba(255, 255, 255, .2)
+  backdrop-filter: blur(5px)
+  &-inner
+    display: grid
+    grid-template-columns: auto 1fr auto
+    align-items: center
+    height: auto
+    min-height: 115px
+  &-logo
+    margin-right: 60px
+  &-contact
+    justify-self: end
+  &-mail
+    display: inline-block
+    position: relative
+    color: #062C84
+    font-size: 1.8rem
+    font-weight: 500
+    margin-right: 68px
+    &::before
+      content: ''
+      position: absolute
+      width: 24px
+      left: -37px
+      height: 19px
+      top: -1px
+      background-image: url('../img/icons/mail.svg')
+    &:hover
+      color: lighten(#062C84, 20)
+  &-number
+    font-size: 1.8rem
+    display: inline-block
+    color: #062C84
+    font-weight: 500
+    position: relative
+    margin-right: 29px
+    transition: color .3s ease
+    &::before
+      content: ''
+      position: absolute
+      width: 24px
+      left: -35px
+      height: 24px
+      top: -4px
+      background-image: url('../img/icons/phone.svg')
+    &:hover
+      color: lighten(#062C84, 20)
+  &-btn
+    display: inline-block
+    border: 0.125em solid #29CCB8
+    padding: 0.813em 1.1em
+    border-radius: 0.375em
+    font-size: 1.8rem
+    color: #29CCB8
+    font-weight: 500
+    &:hover
+      color: #fff
+      background-color: #29ccbb
+
+.nav
+  &-list
+    display: flex
+  &-link
+    margin-right: 34px
+    font-weight: 600
+    color: #062C84
+    font-size: 1.8rem
+    &:first-child
+      margin-right: 54px
+      position: relative
+      display: flex
+      &::after
+        content: ''
+        position: absolute
+        width: 12px
+        height: 8px
+        background-image: url('../img/icons/dropDown.svg')
+        right: -21px
+        top: 6px

@@ -1,0 +1,49 @@
+.footer
+  background-color: #182333
+  margin-top: auto
+  &-top
+    display: grid
+    grid-template-columns: repeat(4, auto) 1fr
+    padding: 80px 0 65px 0
+    gap: 125px
+    h4
+      font-size: 3rem
+      font-weight: 500
+      margin-bottom: 40px
+      color: #29CCB8
+  &-list
+    li
+      margin-bottom: 23px
+      &:last-child
+        margin-bottom: 0
+  &-link
+    color: #fff
+    transition: color .3s ease
+    &:hover
+      color: darken(#fff, 30)
+  &-services
+    a
+      display: inline-block
+  &-logo
+    display: block
+    justify-self: end
+    align-self: flex-end
+    &__color
+      fill: #29CCB8
+  &-bottom
+    display: grid
+    grid-template-columns: repeat(2, 1fr )
+    padding: 38px 0
+    align-items: center
+  &-rights
+    color: #fff
+    font-size: 1.3rem
+  &-social
+    justify-self: end
+    &__item
+      display: inline-block
+      margin-right: 15px
+      &:last-child
+        margin-right: 0
+      img
+        display: block
